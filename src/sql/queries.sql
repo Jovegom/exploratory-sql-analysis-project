@@ -15,14 +15,22 @@
 -- directly below the corresponding instruction
 -- -----------------------------------------------
 
-SELECT * FROM regions;
-SELECT * FROM species;
-SELECT * FROM climate;
-SELECT * FROM observations;
+
 
 
 -- MISSION 1
--- Your query here;
+
+-- ¿Cuáles son las primeras 10 observaciones registradas?
+
+SELECT * FROM observations LIMIT 10;
+
+--¿Qué identificadores de región ( region_id) aparecen en los datos?
+
+SELECT DISTINCT region_id FROM observations;
+
+-- ¿Cuántas especies distintas ( species_id) se han observado?
+
+SELECT COUNT(DISTINCT species_id) AS total_species FROM observations;
 
 -- MISSION 2
 -- Your query here;
