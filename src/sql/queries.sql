@@ -25,9 +25,9 @@ SELECT DISTINCT region_id FROM observations;
 -- ¿Cuántas especies distintas ( species_id) se han observado?
 SELECT COUNT(DISTINCT species_id) AS total_species FROM observations;
 -- ¿Cuántas observaciones hay para la región con region_id = 2?
-SELECT * WHERE region_id = 2 FROM observations
+SELECT * WHERE region_id = 2 FROM observations;
 --¿Cuántas observaciones se registraron el día 1998-08-08?
-
+SELECT * FROM observations WHERE observation_date = '1998-08-08';
 
 
 -- MISSION 2
