@@ -32,27 +32,75 @@ SELECT * FROM observations WHERE observation_date = '1998-08-08';
 
 -- MISSION 2
 -- Your query here;
+--¿Cuál es el region_id con más observaciones?
+SELECT region_id, 
+COUNT(*) 
+AS registros
+FROM observations
+GROUP BY region_id 
+ORDER BY registros DESC
+LIMIT 10;
+
+--¿Cuál es el region_idcon más observaciones?
+SELECT species_id,
+COUNT (*)
+AS registros
+FROM observations
+GROUP BY species_id
+ORDER BY registros DESC
+LIMIT 5;
+
+--¿Cuáles son los 5 species_idmás frecuentes?
+SELECT species_id,
+COUNT (*)
+AS registros
+FROM observations
+GROUP BY species_id
+HAVING COUNT (*) < 5;
+
+--¿Qué especies ( species_id) tienen menos de 5 registros?
+SELECT observer,
+COUNT (*)
+AS registros
+FROM observations
+GROUP BY observer
+ORDER BY registros DESC;
+
+--¿Qué observadores ( observer) registraron más observaciones?
 
 
 -- MISSION 3
 -- Your query here;
+--Muestra el nombre de la región ( regions.name) para cada observación.
+SELECT  
+observations.observer, 
+regions.name, 
+regions.country
+FROM observations
+JOIN regions
+    ON observations.region_id = regions.id;
+
+--Muestra el nombre científico de cada especie registrada ( species.scientific_name).
+SELECT 
+ observations.species_id,
+ species.scientific_name,
+ species.common_name
+FROM observations
+JOIN species
+    ON observations.species_id = species.id;
+
+--¿Cuál es la especie más observada por cada región?
+SELECT 
+regions.name As city, 
+regions.country,
+species.scientific_name AS nombre,
+COUNT(*) AS total
+FROM observations
+JOIN regions
+    ON observations.region_id = regions.id
+JOIN species
+    ON observations.species_id = species.id
+GROUP BY name,scientific_name
+ORDER BY total DESC;
 
 
--- MISSION 4
--- Your query here;
-
-
--- MISSION 5
--- Your query here;
-
-
--- MISSION 6
--- Your query here;
-
-
--- MISSION 7
--- Your query here;
-
-
--- MISSION 8
--- Your query here;
