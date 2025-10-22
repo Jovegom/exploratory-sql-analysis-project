@@ -41,7 +41,7 @@ GROUP BY region_id
 ORDER BY registros DESC
 LIMIT 10;
 
---¿Cuál es el region_idcon más observaciones?
+--¿Cuáles son los 5 species_idmás frecuentes?
 SELECT species_id,
 COUNT (*)
 AS registros
@@ -50,7 +50,7 @@ GROUP BY species_id
 ORDER BY registros DESC
 LIMIT 5;
 
---¿Cuáles son los 5 species_idmás frecuentes?
+--¿Qué especies ( species_id) tienen menos de 5 registros?
 SELECT species_id,
 COUNT (*)
 AS registros
@@ -58,16 +58,13 @@ FROM observations
 GROUP BY species_id
 HAVING COUNT (*) < 5;
 
---¿Qué especies ( species_id) tienen menos de 5 registros?
+--¿Qué observadores ( observer) registraron más observaciones?
 SELECT observer,
 COUNT (*)
 AS registros
 FROM observations
 GROUP BY observer
-ORDER BY registros DESC;
-
---¿Qué observadores ( observer) registraron más observaciones?
-
+ORDER BY registros DESC
 
 -- MISSION 3
 -- Your query here;
