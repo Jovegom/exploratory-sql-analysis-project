@@ -3,19 +3,17 @@
 -- ⚠️ IMPORTANT: This SQL file may crash due to two common issues: comments and missing semicolons.
 
 -- ✅ Suggestions:
--- 1) Always end each SQL query with a semicolon `;`
+-- 1) Always end each SQL query with a semicolon ;
 -- 2) Ensure comments are well-formed:
---    - Use `--` for single-line comments only
+--    - Use -- for single-line comments only
 --    - Avoid inline comments after queries
---    - Do not use `/* */` multi-line comments, as they may break execution
+--    - Do not use /* */ multi-line comments, as they may break execution
 
 -- -----------------------------------------------
 -- queries.sql
 -- Complete each mission by writing your SQL query
 -- directly below the corresponding instruction
 -- -----------------------------------------------
-
-¡
 
 -- MISSION 1
 -- ¿Cuáles son las primeras 10 observaciones registradas?
@@ -25,13 +23,12 @@ SELECT DISTINCT region_id FROM observations;
 -- ¿Cuántas especies distintas ( species_id) se han observado?
 SELECT COUNT(DISTINCT species_id) AS total_species FROM observations;
 -- ¿Cuántas observaciones hay para la región con region_id = 2?
-SELECT * WHERE region_id = 2 FROM observations;
+SELECT * FROM observations WHERE region_id = 2;
 --¿Cuántas observaciones se registraron el día 1998-08-08?
 SELECT * FROM observations WHERE observation_date = '1998-08-08';
 
 
 -- MISSION 2
--- Your query here;
 --¿Cuál es el region_id con más observaciones?
 SELECT region_id, 
 COUNT(*) 
@@ -64,10 +61,9 @@ COUNT (*)
 AS registros
 FROM observations
 GROUP BY observer
-ORDER BY registros DESC
+ORDER BY registros DESC;
 
 -- MISSION 3
--- Your query here;
 --Muestra el nombre de la región ( regions.name) para cada observación.
 SELECT  
 observations.observer, 
