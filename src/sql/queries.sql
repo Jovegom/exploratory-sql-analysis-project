@@ -86,14 +86,13 @@ JOIN species
 SELECT 
 regions.name As city, 
 regions.country,
-species.scientific_name AS nombre,
 COUNT(*) AS total
 FROM observations
 JOIN regions
     ON observations.region_id = regions.id
 JOIN species
     ON observations.species_id = species.id
-GROUP BY name,scientific_name
-ORDER BY total DESC;
+GROUP BY city
+ORDER BY total DESC ;
 
 
